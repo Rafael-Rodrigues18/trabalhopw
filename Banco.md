@@ -56,8 +56,6 @@ DELIMITER $$
 $$
 call spCriarUsuario('Alexandre pães','carpinteiro','2000/05/20', 10, 'Brasília', 'Brasília', 'Pratióticas', 'Rua do Anel vermelho', 10, 109);
 call spCriarUsuario('Maria Hambugo', 'artesanalista', '1999/06/7', 6, 'São Paulo', 'Guarulhos', 'Nova festfália', 'Rua Rei Whilhn II', null, 87);
--- Nesse caso temos uma procedure para criar o usuário com o endereço dele, mas ele só pode ter um endereço e caso tenha um email idêntico ele se repete, então isso é apenas um teste para o banco, não funciona na realidade
--- Pois se quisessemos usar tudo corretamente, quase todos os atributos de endereço deveriam estar separados.
 
 
 DELIMITER $$
@@ -103,7 +101,7 @@ DELIMITER $$
   end;
 $$
 call spDeletarUsuario(1);
--- Agora, para facilitar a inserção a view lá no asp.net, usaremos uma tabela artificial, também chamada de view.
+
 create or replace view ViewUsu as
 select
 u.IdUsu as "Id",
@@ -123,3 +121,5 @@ on u.IdUsu = e.IdUsuEnde
 order by u.IdUsu ASC;
 
 select * from ViewUsu;
+
+-- dupla Rafael Rodrigues e Lucas Dainez
